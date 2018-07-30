@@ -17,13 +17,13 @@
         1.自动安装：export GOPATH=/d/project/go/grpc-go-helloworld && go get -u google.golang.org/grpc
         2.手动下载：进入 https://github.com/grpc/grpc-go 通过“clone or download”获取整个grpc-go项目；将其改名为grpc放入 %GOPATH%/src/google.golang.org
     （3）安装其他包
-        net,text包安装：
-        cd %GOPATH%
-        mkdir -p src/golang.org/x
-        cd src/golang.org/x
-        通过“clone or download” 获取:
-        https://github.com/golang/text.git
-        https://github.com/golang/net.git
+        net,text，genproto包安装：
+            net，text放置在 %GOPATH%/src/golang.org/x
+            go-genproto更名爲genproto放置在 %GOPATH%/google.golang.org
+            通过“clone or download” 获取:
+            https://github.com/golang/text.git
+            https://github.com/golang/net.git
+            https://github.com/google/go-genproto
 ## 进行proto文件编写
     见 %GOPATH%/src/pb/helloworld.proto
 ## 利用protoc编译 .proto 文件
