@@ -15,10 +15,10 @@ const (
 )
 
 // server is used to implement helloworld.GreeterServer.
-type server struct{}
+type GreeterServerImpl struct{}
 
 // SayHello implements helloworld.GreeterServer
-func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
+func (s *GreeterServerImpl) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	return &pb.HelloReply{Message: "Hello " + in.Name}, nil
 }
 
@@ -29,7 +29,7 @@ func main() {
 	}
 	s := grpc.NewServer()
 
-	pb.RegisterGreeterServer(s, &server{})
+	pb.RegisterGreeterServer(s, &GreeterServerImpl{})
 	// Register reflection service on gRPC server.
 	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {
